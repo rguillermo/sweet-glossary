@@ -1,15 +1,15 @@
-=== Sweet Glossary ===
+=== Plugin Name ===
 Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://example.com/
-Tags: comments, spam
-Requires at least: 4.5
+Donate link: https://techpecialist.com/
+Tags: glossary, seo, table of content
+Requires at least: 3.0.1
 Tested up to: 5.8.2
 Requires PHP: 5.6
 Stable tag: 0.1.0
 License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+A simple, beautiful and SEO friendly glossary plugin.
 
 == Description ==
 
@@ -44,7 +44,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `sweet-glossary.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 
@@ -103,10 +103,10 @@ Unordered list:
 * something else
 * third thing
 
-Here's a link to [WordPress](https://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
+Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
 Titles are optional, naturally.
 
-[markdown syntax]: https://daringfireball.net/projects/markdown/syntax
+[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
             "Markdown is what the parser uses to process much of the readme file"
 
 Markdown uses email style notation for blockquotes and I've been told:
