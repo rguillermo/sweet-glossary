@@ -100,4 +100,53 @@ class Sweet_Glossary_Public {
 
 	}
 
+	/**
+	 * Register glossary post type.
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_cpt_glossary() {
+		$labels = array(
+			'name'              => _x( 'Glossary', 'Glossary Custom Post Type Name Plural', $this->plugin_name ),
+			'singular_name'     => _x( 'Glossary', 'Glossary Custom Post Type Name Singular', $this->plugin_name ),
+			'add_new'			=> _x( 'New glossary', 'Add new glossary term', $this->plugin_name ),
+			'search_items'      => __( 'Search Glossary Terms' ),
+			'all_items'         => __( 'Glossary' ),
+			'edit_item'         => __( 'Edit Glossary term' ),
+			'update_item'       => __( 'Update Glossary term' ),
+			'add_new_item'      => __( 'New Glossary' ),
+			'menu_name'         => __( 'Glossary' ),
+		);
+		$supports = array(
+			'title',
+			'editor',
+			'comments',
+			'revisions',
+			'trackbacks',
+			'author',
+			'excerpt',
+			'page-attributes',
+			'thumbnail',
+			'post-formats'
+		);
+		$args   = array(
+			'description' 	    => 'Glossary Post Type',
+			'labels'            => $labels,
+			'public'			=> true,
+			'hierarchical'		=> true,
+			'exclude_from_search'	=> false,
+			'publicly_queryable'	=> true,
+			'show_ui'           => true,
+			'show_in_menu'		=> 'edit.php',
+			'show_in_nav_menus'	=> true,
+			'show_in_admin_bar'	=> true,
+			'show_in_rest'		=> true,
+			'rest_base'			=> 'glossary',
+			'supports'			=> $supports,
+			'has_archive'		=> 'glossary',
+			'rewrite'           => [ 'slug' => 'glossary', 'pages' => false ],
+		);
+		register_post_type( 'glossary', $args );
+	}
+
 }
