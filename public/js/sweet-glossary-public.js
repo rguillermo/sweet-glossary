@@ -1,32 +1,22 @@
 (function( $ ) {
 	'use strict';
 
-	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
+	$(document).ready(function () {
+		$(".index-search input").on("input", (function() {
+			var t = $(this).val().toLowerCase();
+			console.log(t)
+			0 !== t.length ? ($(".index-wrapper li").filter((function() {
+				console.log($(this).text().toLowerCase().indexOf(t))
+				$(this).text().toLowerCase().indexOf(t) > -1 ? $(this).removeClass("hidden") : $(this).addClass("hidden")
+			}
+			)),
+			$(".index-wrapper .index-item").filter((function() {
+				var t;
+				0 === $(this).find("li:not(.hidden)").length ? $(this).addClass("hidden") : $(this).removeClass("hidden")
+			}
+			))) : $(".index-wrapper .hidden").removeClass("hidden")
+		}
+		))
+	});
 
 })( jQuery );

@@ -173,7 +173,8 @@ class Sweet_Glossary {
 		$this->loader->add_action( 'init', $plugin_public, 'register_cpt_glossary' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'order_glossary_posts' );
+		$this->loader->add_filter( 'template_include', $plugin_public, 'template_glossary_archive' );
 	}
 
 	/**

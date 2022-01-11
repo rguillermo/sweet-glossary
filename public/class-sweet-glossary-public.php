@@ -149,4 +149,30 @@ class Sweet_Glossary_Public {
 		register_post_type( 'glossary', $args );
 	}
 
+	/**
+	 * Include archive glossary template.
+	 *
+	 * @since    1.0.0
+	 */
+	public function template_glossary_archive( $template ) {
+		if ( is_post_type_archive('glossary') ) {
+			return SWEET_GLOSSARY_PATH . 'includes/template/archive-glossary.php';
+		}
+
+		return $template;
+	}
+
+	/**
+	 * Order glossary posts by title.
+	 *
+	 * @since    1.0.0
+	 */
+	public function order_glossary_posts( $query ) {
+		if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'glossary' ) ) {
+			$query->set( 'orderby', 'title' );
+			$query->set( 'order', 'ASC' );
+			$query->set( 'posts_per_page', -1 );
+		}
+	}
+
 }
