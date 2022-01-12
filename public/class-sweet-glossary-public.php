@@ -130,7 +130,7 @@ class Sweet_Glossary_Public {
 			'post-formats'
 		);
 		$args   = array(
-			'description' 	    => 'Glossary Post Type',
+			'description' 	    => 'Glossary Post Typesdlgfhwsloehgwoeghwoe',
 			'labels'            => $labels,
 			'public'			=> true,
 			'hierarchical'		=> true,

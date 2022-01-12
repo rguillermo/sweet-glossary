@@ -11,20 +11,19 @@
 
 get_header();
 
-// $description = get_the_archive_description();
-$description = 'My description';
-$placeholder = 'Search in Glossary';
+$description = get_option( 'sweetglossary_setting_content' );
+$placeholder = get_option( 'sweetglossary_setting_placeholder', __( 'Search in glossary', 'sweetglossary' ) );
+$glossary_title = get_option( 'sweetglossary_setting_title', __( 'Glossary terms', 'sweetglossary' ) );
 
 ?>
 
 <?php if ( have_posts() ) : ?>
 
-	<?php $content_template = SWEET_GLOSSARY_TEMPLATE_PATH . 'parts/content-glossary.php'; ?>
 	<?php $current_letter = ''; ?>
 
 	<header class="page-header alignwide">
 		<!-- <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?> -->
-		<h1 class="page-title">My Sweet Glossary Title</h1>
+		<h1 class="page-title"><?php echo $glossary_title; ?></h1>
 		<?php if ( $description ) : ?>
 			<div class="archive-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
 		<?php endif; ?>
@@ -67,7 +66,6 @@ $placeholder = 'Search in Glossary';
 			$index_items .= sprintf( '<li class><a href="%s">%s</a></li>', esc_url( get_permalink() ), get_the_title() );
 
 			?>
-			<?php // load_template( $content_template, false ); ?>
 
 		<?php endwhile; ?>
 

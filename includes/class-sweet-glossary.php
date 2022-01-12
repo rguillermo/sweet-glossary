@@ -156,6 +156,9 @@ class Sweet_Glossary {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_sweet_glossary_menu' );
+		$this->loader->add_filter( 'plugin_action_links_sweet-glossary/sweet-glossary.php', $plugin_admin, 'add_settings_link' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_sweet_glossary_settings' );
 
 	}
 
