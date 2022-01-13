@@ -156,10 +156,6 @@ class Sweet_Glossary {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_sweet_glossary_menu' );
-		$this->loader->add_filter( 'plugin_action_links_sweet-glossary/sweet-glossary.php', $plugin_admin, 'add_settings_link' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_sweet_glossary_settings' );
-
 	}
 
 	/**
@@ -174,10 +170,9 @@ class Sweet_Glossary {
 		$plugin_public = new Sweet_Glossary_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_public, 'register_cpt_glossary' );
+		$this->loader->add_action( 'init', $plugin_public, 'add_glossary_shortcode' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'order_glossary_posts' );
-		$this->loader->add_filter( 'template_include', $plugin_public, 'template_glossary_archive' );
 	}
 
 	/**

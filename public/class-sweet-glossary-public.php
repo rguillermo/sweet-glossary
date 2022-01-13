@@ -130,7 +130,7 @@ class Sweet_Glossary_Public {
 			'post-formats'
 		);
 		$args   = array(
-			'description' 	    => 'Glossary Post Typesdlgfhwsloehgwoeghwoe',
+			'description' 	    => 'Glossary Terms',
 			'labels'            => $labels,
 			'public'			=> true,
 			'hierarchical'		=> true,
@@ -143,36 +143,71 @@ class Sweet_Glossary_Public {
 			'show_in_rest'		=> true,
 			'rest_base'			=> 'glossary',
 			'supports'			=> $supports,
-			'has_archive'		=> 'glossary',
-			'rewrite'           => [ 'slug' => 'glossary', 'pages' => false ],
+			'has_archive'		=> false,
+			//'rewrite'           => [ 'slug' => 'glossary', 'pages' => false ],
 		);
 		register_post_type( 'glossary', $args );
 	}
 
 	/**
-	 * Include archive glossary template.
+	 * Add glossary shortcode
 	 *
 	 * @since    1.0.0
 	 */
-	public function template_glossary_archive( $template ) {
-		if ( is_post_type_archive('glossary') ) {
-			return SWEET_GLOSSARY_PATH . 'includes/template/archive-glossary.php';
-		}
+	public function add_glossary_shortcode() {
+		add_shortcode( 'sweetglossary', function() {
+			// Get all glossary post types
+			$args = array(
+				'post_type' => 'glossary',
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'orderby' => 'title',
+				'order' => 'ASC',
+			);
 
-		return $template;
-	}
+			$loop = new WP_Query( $args );
 
-	/**
-	 * Order glossary posts by title.
-	 *
-	 * @since    1.0.0
-	 */
-	public function order_glossary_posts( $query ) {
-		if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'glossary' ) ) {
-			$query->set( 'orderby', 'title' );
-			$query->set( 'order', 'ASC' );
-			$query->set( 'posts_per_page', -1 );
-		}
+			$current_letter = '';
+			$index_items = '';
+			$index_item = '<div class="index-item">%s</div>';
+			$index_list = '<ul>%s</ul>';
+			$index_item_letter = '';
+			$content = '<div class="index-search">';
+			$content .= '<input type="search" id="glossary-search-box" class="search-icon" name="s" placeholder="Search in glossary">';
+			$content .= '</div><div class="index-wrapper">';
+
+			if ( $loop->have_posts() ) {
+
+				while ( $loop->have_posts() ) :
+					$loop->the_post();
+					$initial = strtoupper( substr( get_the_title(), 0, 1 ) );
+
+					if ( $initial != $current_letter ) {
+
+						if ( $current_letter != '' ) {
+							$content .= sprintf( $index_item, $index_item_letter . sprintf( $index_list, $index_items ) );
+						}
+						// reset
+						$current_letter = $initial;
+						$index_items = '';
+						$index_item_letter = sprintf( '<div class="index-item-letter">%s</div>', $current_letter );
+					}
+
+					$index_items .= sprintf( '<li class><a href="%s">%s</a></li>', esc_url( get_permalink() ), get_the_title() );
+
+				endwhile;
+
+			} else {
+				$content .= '<p>' . __( 'No glossary terms yet. Come back later :)', 'sweetglossary' ) . '</p>';
+			}
+
+
+			$content .= '</div>';
+
+			wp_reset_postdata();
+
+			return $content;
+		});
 	}
 
 }
