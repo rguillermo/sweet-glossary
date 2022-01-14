@@ -129,6 +129,9 @@ class Sweet_Glossary_Public {
 			'thumbnail',
 			'post-formats'
 		);
+
+		$slug = get_option( $this->plugin_name . '_slug', 'glossary' );
+
 		$args   = array(
 			'description' 	    => 'Glossary Terms',
 			'labels'            => $labels,
@@ -144,7 +147,7 @@ class Sweet_Glossary_Public {
 			'rest_base'			=> 'glossary',
 			'supports'			=> $supports,
 			'has_archive'		=> false,
-			//'rewrite'           => [ 'slug' => 'glossary', 'pages' => false ],
+			'rewrite'           => [ 'slug' => $slug, 'pages' => false ],
 		);
 		register_post_type( 'glossary', $args );
 	}
