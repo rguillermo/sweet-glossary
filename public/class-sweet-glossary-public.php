@@ -107,15 +107,15 @@ class Sweet_Glossary_Public {
 	 */
 	public function register_cpt_glossary() {
 		$labels = array(
-			'name'              => _x( 'Glossary', 'Glossary Custom Post Type Name Plural', $this->plugin_name ),
-			'singular_name'     => _x( 'Glossary', 'Glossary Custom Post Type Name Singular', $this->plugin_name ),
-			'add_new'			=> _x( 'New glossary', 'Add new glossary term', $this->plugin_name ),
-			'search_items'      => __( 'Search Glossary Terms' ),
-			'all_items'         => __( 'Glossary' ),
-			'edit_item'         => __( 'Edit Glossary term' ),
-			'update_item'       => __( 'Update Glossary term' ),
-			'add_new_item'      => __( 'New Glossary' ),
-			'menu_name'         => __( 'Glossary' ),
+			'name'              => _x( 'Glossary', 'Glossary Custom Post Type Name Plural', $this->plugin_name, 'sweet-glossary' ),
+			'singular_name'     => _x( 'Glossary', 'Glossary Custom Post Type Name Singular', $this->plugin_name, 'sweet-glossary' ),
+			'add_new'			=> _x( 'New glossary', 'Add new glossary term', $this->plugin_name, 'sweet-glossary' ),
+			'search_items'      => __( 'Search Glossary Terms', 'sweet-glossary' ),
+			'all_items'         => __( 'Glossary', 'sweet-glossary' ),
+			'edit_item'         => __( 'Edit Glossary term', 'sweet-glossary' ),
+			'update_item'       => __( 'Update Glossary term', 'sweet-glossary' ),
+			'add_new_item'      => __( 'New Glossary', 'sweet-glossary' ),
+			'menu_name'         => __( 'Glossary', 'sweet-glossary' ),
 		);
 		$supports = array(
 			'title',
@@ -197,8 +197,10 @@ class Sweet_Glossary_Public {
 
 				endwhile;
 
+				$content .= sprintf( $index_item, $index_item_letter . sprintf( $index_list, $index_items ) );
+
 			} else {
-				$content .= '<p>' . __( 'No glossary terms yet. Come back later :)', 'sweetglossary' ) . '</p>';
+				$content .= '<div class="empty-glossary"><p>' . _x( 'We are preparing something amazing here. Check back later 🤓.', 'No glossary terms', 'sweet-glossary' ) . '</p>';
 			}
 
 

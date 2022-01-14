@@ -50,6 +50,17 @@
     text-decoration: none;
 }
 
+.empty-glossary {
+    background-color: #FFF;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 10px;
+    text-align: center;
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .index-item-letter {
         position: absolute;
