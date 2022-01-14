@@ -40,3 +40,5 @@ node_modules
 *.sql
 *.tar.gz
 *.zip
+commitlint.config.js
+.cz-config.js
