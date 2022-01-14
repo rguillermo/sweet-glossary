@@ -45,6 +45,7 @@ Absolutely it does. Sweet Glossary adapts to your site design no matter what the
 
 == Screenshots ==
 1. Sweet Glossary add a beautiful list of terms
+2. Sweet Glossary permalink settings
 
 == Changelog ==
 = 0.1.0 =

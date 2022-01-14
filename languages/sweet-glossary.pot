@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sweet Glossary 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sweet-glossary\n"
-"POT-Creation-Date: 2022-01-14 14:21:09+00:00\n"
+"POT-Creation-Date: 2022-01-14 21:04:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,10 +45,6 @@ msgstr ""
 msgid "New Glossary"
 msgstr ""
 
-#: public/class-sweet-glossary-public.php:201
-msgid "No glossary terms yet. Come back later :)"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "Sweet Glossary"
 msgstr ""
@@ -69,6 +65,16 @@ msgstr ""
 msgid "https://techpecialist.com/"
 msgstr ""
 
+#: admin/class-sweet-glossary-admin.php:111
+msgctxt "Settings option"
+msgid "Customize Sweet Glossary base slug"
+msgstr ""
+
+#: admin/class-sweet-glossary-admin.php:118
+msgctxt "Settings header"
+msgid "Glossary base slug"
+msgstr ""
+
 #: public/class-sweet-glossary-public.php:110
 msgctxt "Glossary Custom Post Type Name Plural"
 msgid "Glossary"
@@ -82,4 +88,9 @@ msgstr ""
 #: public/class-sweet-glossary-public.php:112
 msgctxt "Add new glossary term"
 msgid "New glossary"
+msgstr ""
+
+#: public/class-sweet-glossary-public.php:206
+msgctxt "No glossary terms"
+msgid "We are preparing something amazing here. Check back later 🤓."
 msgstr ""

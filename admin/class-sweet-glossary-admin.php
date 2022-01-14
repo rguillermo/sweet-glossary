@@ -108,14 +108,14 @@ class Sweet_Glossary_Admin {
 	public function register_glossary_settings() {
 		add_settings_section(
 			$this->plugin_name . '_settings',
-			_x( 'Customize Sweet Glossary base slug', 'Settings option', $this->plugin_name ),
+			_x( 'Customize Sweet Glossary base slug', 'Settings option', $this->plugin_name, 'sweet-glossary' ),
 			array( $this, 'settings_description_cb' ),
 			'permalink'
 		);
 
 		add_settings_field(
 			$this->plugin_name . '_slug',
-			_x( 'Glossary base slug', 'Settings header', $this->plugin_name ),
+			_x( 'Glossary base slug', 'Settings header', $this->plugin_name, 'sweet-glossary' ),
 			array( $this, 'settings_fields_cb' ),
 			'permalink',
 			$this->plugin_name . '_settings'
@@ -144,16 +144,16 @@ class Sweet_Glossary_Admin {
 		$to = $site_url . '/<strong>my-custom-slug</strong>/sample-term';
 
 		$description = '<p>';
-		$description .= _x( 'Here you can change the base slug of your glossary terms.', $translation_context, $this->plugin_name );
+		$description .= _x( 'Here you can change the base slug of your glossary terms.', $translation_context, $this->plugin_name, 'sweet-glossary' );
 		$description .= '</p><p>';
-		$description .= _x( 'For example:', $translation_context );
+		$description .= _x( 'For example:', $translation_context, 'sweet-glossary' );
 		$description .= '<span class="setting-example">';
-		$description .= _x( 'From:', $translation_context, $this->plugin_name ) . ' ' . $from;
+		$description .= _x( 'From:', $translation_context, $this->plugin_name, 'sweet-glossary' ) . ' ' . $from;
 		$description .= '</span><span class="setting-example">';
-		$description .= _x( 'To:', $translation_context, $this->plugin_name ) . ' ' . $to;
+		$description .= _x( 'To:', $translation_context, $this->plugin_name, 'sweet-glossary' ) . ' ' . $to;
 		$description .= '</span>';
 		$description .= '</p><p>';
-		$description .= _x( 'The default slug is', $translation_context, $this->plugin_name ) . ' <strong>"glossary"</strong>.';
+		$description .= _x( 'The default slug is', $translation_context, $this->plugin_name, 'sweet-glossary' ) . ' <strong>"glossary"</strong>.';
 		$description .= '</p>';
 
 		echo $description;
