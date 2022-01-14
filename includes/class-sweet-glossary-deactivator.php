@@ -30,7 +30,8 @@ class Sweet_Glossary_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		unregister_post_type( 'glossary' );
+		flush_rewrite_rules();
 	}
 
 }

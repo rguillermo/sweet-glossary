@@ -36,9 +36,9 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'SWEET_GLOSSARY_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME', 'sweet-glossary' );
 define( 'SWEET_GLOSSARY_PATH', plugin_dir_path(__FILE__) );
 define( 'SWEET_GLOSSARY_URL', plugin_dir_url(__FILE__) );
-define( 'SWEET_GLOSSARY_TEMPLATE_PATH', plugin_dir_path(__FILE__) . 'includes/template/' );
 
 /**
  * The code that runs during plugin activation.
