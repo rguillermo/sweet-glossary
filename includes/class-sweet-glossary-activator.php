@@ -31,7 +31,7 @@ class Sweet_Glossary_Activator {
 	 */
 	public static function activate() {
 		// require_once SWEET_GLOSSARY_PATH . 'public/class-sweet-glossary-public.php';
-		$plugin_public = new Sweet_Glossary_Public( PLUGIN_NAME, SWEET_GLOSSARY_VERSION );
+		$plugin_public = new Sweet_Glossary_Public( SWEET_GLOSSARY_PLUGIN_NAME, SWEET_GLOSSARY_VERSION );
 		$plugin_public->register_cpt_glossary();
 		flush_rewrite_rules();
 	}

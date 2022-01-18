@@ -156,7 +156,7 @@ class Sweet_Glossary_Admin {
 		$description .= _x( 'The default slug is', $translation_context, $this->plugin_name, 'sweet-glossary' ) . ' <strong>"glossary"</strong>.';
 		$description .= '</p>';
 
-		echo $description;
+		echo esc_html( $description );
 	}
 
 	/**
@@ -168,7 +168,7 @@ class Sweet_Glossary_Admin {
 		$name = $this->plugin_name . '_slug';
 		$slug = get_option( $name, 'glossary' );
 		$input = sprintf( '<input type="text" class="regular-text code" name="%s" id="%s" value="%s">', $name, $name, $slug );
-		echo $input;
+		echo esc_html( $input );
 	}
 
 	/**
@@ -181,7 +181,7 @@ class Sweet_Glossary_Admin {
 
 		if( isset($_POST['permalink_structure']) && isset( $_POST[$option_name] ) ){
 
-			$slug = wp_unslash( $_POST[$option_name] );
+			$slug = sanitize_title( wp_unslash( $_POST[$option_name] ) );
 			update_option( $option_name,  $slug );
 
 		  }
