@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/techpecialist
 Requires at least: 3.0.1
 Tested up to: 5.8.3
 Requires PHP: 5.6
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -48,6 +48,6 @@ Absolutely it does. Sweet Glossary adapts to your site design no matter what the
 2. Sweet Glossary permalink settings
 
 == Changelog ==
-= 0.1.0 =
+= 1.0.0 =
 * Add shortcode for terms listing
 * First stable version
